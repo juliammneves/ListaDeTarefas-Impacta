@@ -1,0 +1,29 @@
+﻿@model List<Tarefa>
+
+<h1 class="mb-4">Tarefas Feitas</h1>
+
+<div class="row">
+    @if (Model != null && Model.Any())
+    {
+        @foreach (var tarefa in Model)
+        {
+            <div class="col-lg-4 col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">@tarefa.Titulo</h5>
+                        <p class="card-text">@tarefa.Descricao</p>
+                    </div>
+                    <div class="card-footer text-body-secondary">
+                        <span class="fw-bold">Data de conclusão:</span> @tarefa.DataConclusao
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="col-12 text-center fs-4 mt-5 text-secondary">
+            Nenhuma tarefa Concluída.
+        </div>
+    }
+</div>

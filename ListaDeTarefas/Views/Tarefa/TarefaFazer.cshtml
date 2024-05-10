@@ -1,0 +1,31 @@
+﻿@model List<Tarefa>
+
+<h1 class="mb-4">Tarefas a fazer</h1>
+
+<div class="row ">
+    @if (Model != null && Model.Any())
+    {
+        @foreach (var tarefa in Model)
+        {
+            <div class="col-lg-4 col-md-6">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">@tarefa.Titulo</h5>
+                        <p class="card-text">@tarefa.Descricao</p>
+                        <a class="btn btn-outline-success" asp-action="Concluir" asp-route-id="@tarefa.ID"><i class="bi bi-check2-circle"></i></a>
+                    </div>
+                    <div class="card-footer text-body-secondary">
+                        <span class="fw-bold">Data de início:</span> @tarefa.DataInicio
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <p class="col-12 text-center fs-4 mt-5 text-secondary">
+            Nenhuma tarefa a fazer.
+        </p>
+    }
+
+</div>

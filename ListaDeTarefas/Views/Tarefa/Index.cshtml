@@ -1,0 +1,55 @@
+﻿@model List<Tarefa>
+
+<h1>Lista de Tarefas</h1>
+
+<p>
+    <a class="btn btn-success" asp-action="Create">Adicionar Tarefa</a>
+</p>
+
+<div class="row">
+    @if (Model != null && Model.Any())
+    {
+        @foreach (var tarefa in Model)
+        {
+            <div class="col-lg-4 col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col">@tarefa.ID</div>
+                            @if (tarefa.Status == "Concluído")
+                            {
+                                <div class="col text-success text-center bg-success-subtle border border-success rounded-pill me-2">Concluído</div>
+                            }
+                            else if (tarefa.Status == "A fazer")
+                            {
+                                <div class="col text-warning text-center bg-warning-subtle border border-warning rounded-pill me-2">A fazer</div>
+                            }
+                            else
+                            {
+                                <div class="col text-info text-center bg-info-subtle border border-info rounded-pill me-2">@tarefa.Status</div>
+                            }
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">@tarefa.Titulo</h5>
+                        <p class="card-text">@tarefa.Descricao</p>
+                        <a class="btn btn-outline-success" asp-action="Concluir" asp-route-id="@tarefa.ID"><i class="bi bi-check2-circle"></i></a>
+                        <a class="btn btn-outline-secondary" asp-action="Edit" asp-route-id="@tarefa.ID"><i class="bi bi-pen"></i></a>
+                        <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@tarefa.ID"><i class="bi bi-info-circle"></i></a>
+                        <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@tarefa.ID"><i class="bi bi-trash3"></i></a>
+                    </div>
+                    <div class="card-footer text-body-secondary">
+                        <span class="fw-bold">Data de início:</span> @tarefa.DataInicio <br />
+                        <span class="fw-bold">Data de conclusão:</span> @tarefa.DataConclusao
+                    </div>
+                </div>
+            </div>
+        }
+    } 
+    else
+    {
+        <p class="col-12 text-center fs-4 mt-5 text-secondary">
+            A lista está vazia.
+        </p>
+    }
+</div>

@@ -1,0 +1,15 @@
+﻿@model Tarefa
+
+<h4>Tarefa</h4>
+<hr />
+
+<p><b>ID:</b> @Model.ID</p>
+<p><b>Título:</b> @Model.Titulo</p>
+<p><b>Status:</b> @Model.Status</p>
+<p><b>Data de ínicio:</b> @Model.DataInicio</p>
+<p><b>Data de conclusão:</b> @Model.DataConclusao</p>
+<div>
+    <a asp-action="Edit" class="btn btn-outline-info" asp-route-id="@Model.ID">Editar</a>
+    <a asp-action="Concluir" class="btn btn-outline-success me-3" asp-route-id="@Model.ID">Concluir</a>
+    <a asp-action="Index">Voltar</a>
+</div>
