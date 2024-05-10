@@ -7,9 +7,9 @@ namespace ListaDeTarefas.Controllers
     {
         private static List<Tarefa> _tarefas = new List<Tarefa>()
         {
-            new Tarefa { ID = 1, Titulo = "Criar apresentação para reunião", Descricao = "Preparar slides e documentos para a reunião com a equipe de projeto.", Status = "A fazer", DataInicio = new DateOnly(2024, 5, 10) },
-            new Tarefa { ID = 2, Titulo = "Finalizar relatório mensal", Descricao = "Concluir relatório com os dados do último mês para entrega ao cliente.", Status = "A fazer", DataInicio = new DateOnly(2024, 5, 8) },
-            new Tarefa { ID = 3, Titulo = "Agendar reunião com fornecedor", Descricao = "Entrar em contato com o fornecedor para discutir novos termos de contrato.", Status = "A fazer", DataInicio = new DateOnly(2024, 5, 12) }
+            new Tarefa { ID = 1, Titulo = "Criar apresentação para reunião", Descricao = "Preparar slides e documentos para a reunião com a equipe de projeto.", Status = "A fazer", DataInicio = new DateOnly(2024, 5, 8) },
+            new Tarefa { ID = 2, Titulo = "Finalizar relatório mensal", Descricao = "Concluir relatório com os dados do último mês para entrega ao cliente.", Status = "A fazer", DataInicio = new DateOnly(2024, 5, 9) },
+            new Tarefa { ID = 3, Titulo = "Agendar reunião com fornecedor", Descricao = "Entrar em contato com o fornecedor para discutir novos termos de contrato.", Status = "A fazer", DataInicio = new DateOnly(2024, 5, 10) }
         };
 
         public IActionResult Index()
